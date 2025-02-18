@@ -1,26 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./style.css">
-	<title>Exchanger</title>
-</head>
-<body>
-	<div class="app">
-		<div class="exchanger">
-			<div class="interface">
-				<div id="preloader" class="preloader">
-					<img src="./imgs/loader.gif" alt="" class="preloader__gif">
-					<h2 id='text' class="preloader__text"></h2>
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./style.css" />
+		<title>Exchanger</title>
+	</head>
+	<body>
+		<div id='app' class="app">
+			<div id="preloader" class="preloader">
+				<img src="./imgs/loader.gif" alt="" class="preloader__gif" />
+				<h2 id="text" class="preloader__text"></h2>
+			</div>
+			<div id='exchanger' class="exchanger">
+				<div class="interface" id="interface">
+					<div class="exchange__basic">
+						<div class="basic__curr-string">
+							<img id="curr-img" alt="" class="basic__curr-img" />
+							<select name="Currency" id="currs" class="basic__curr-select">
+								<option class="basic__curr" value="disabled selected">
+									Оберіть валюту
+								</option>
+								<option class="basic__curr" value="USD">
+									Американський доллар
+								</option>
+								<option class="basic__curr" value="UAH">
+									Українська гривня
+								</option>
+								<option class="basic__curr" value="EUR">
+									Європейське євро
+								</option>
+								<option class="basic__curr" value="PLN">
+									Польський злотий
+								</option>
+								<option class="basic__curr" value="ILS">
+									Ізраїльський шекель
+								</option>
+							</select>
+						</div>
+						<div class="basic__value-area">
+							<input type="number" class="basic__value" placeholder="00000" />
+						</div>
+						<button class="basic__convert-btn">Конвертувати</button>
+					</div>
+
+					<div class="change__btn-area">
+						<button id="change" class="change__btn">
+							<img src="./imgs/change.png" alt="" class="change__btn-img" />
+						</button>
+					</div>
+
+					<div class="exchange__second">
+						<div class="second__curr-string">
+							<img id="curr-img-second" alt="" class="second__curr-img" />
+							<select
+								name="Currency"
+								id="currs-second"
+								class="second__curr-select"
+							>
+								<option class="second__curr" value="disabled selected">Оберіть валюту</option>
+								second
+								<option class="second__curr" value="USD">
+									Американський доллар
+								</option>
+								<option class="second__curr" value="UAH">
+									Українська гривня
+								</option>
+								<option class="second__curr" value="EUR">
+									Європейське євро
+								</option>
+								<option class="second__curr" value="PLN">
+									Польський злотий
+								</option>
+								<option class="second__curr" value="ILS">
+									Ізраїльський шекель
+								</option>
+							</select>
+						</div>
+
+						<div class="second__value-area">
+							<h2 id="s_value" class="second-value"></h2>
+						</div>
+					</div>
+					<textarea
+						disabled
+						readonly
+						name="console"
+						id="console"
+						class="interface__console"
+					></textarea>
+					<div class="interface__btns">
+						<button id='theme' class="interface__theme-btn">
+								<div class="theme__btn-content">
+										<h2 class="theme__btn-text">Тема</h2>
+										<img id='theme-img' src="./imgs/dark.png" alt="Тема" class="theme__btn-img">
+								</div>
+						</button>
+				
+						<div class="fast__btn-wrapper">
+								<div class="second__btn">
+										<button id='100' class="item">100</button>
+										<button id='500' class="item">500</button>
+										<button id='1000' class="item">1000</button>
+										<button id='back' class="item">Back</button>
+								</div>
+								<button id='fast' class="interface__fast-btn fast__btn-overlay">
+										<div class="fast__btn-content">
+												<h2 class="fast__btn-text">Швидкі суми</h2>
+												<img src="./imgs/money.png" alt="Швидкі суми" class="fast__btn-img">
+										</div>
+								</button>
+						</div>
+				</div>
+				
 				</div>
 			</div>
 		</div>
-	</div>
-	<script type="module" src='./scripts/main.js'></script>
-	<script type="module" src="./scripts/preloader.js"></script>
-</body>
+		<script type="module" src="./scripts/main.js"></script>
+		<script type="module" src="./scripts/preloader.js"></script>
+	</body>
 </html>

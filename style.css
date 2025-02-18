@@ -1,5 +1,16 @@
 :root {
   --color: #403D39;
+  --border: #2F2926;
+  --bg: #e5e8e1;
+  --app: #b1a99e;
+  --light: #d5d6d2;
+}
+
+.dark-theme {
+  --color: #F5F9F8;
+  --border: #A1A2AB;
+  --bg: #3B3A4A;
+  --light: #252330;
 }
 
 * {
@@ -56,41 +67,54 @@ table {
 .app {
   width: 100vw;
   height: 100vh;
-  background-color: #b1a99e;
+  background-color: var(--app);
 }
 
 .exchanger {
   width: 400px;
   height: 700px;
-  border: 1px solid black;
-  background-color: #e5e8e1;
+  border: 5px solid var(--border);
+  background-color: var(--bg);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   border-radius: 25px;
+  justify-content: space-between;
 }
 
 .interface {
-
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 10px; /* Піднімає елементи трохи вгору */
+  flex-grow: 1; /* Розтягує контейнер */
 }
 
 .preloader {
+  height: 250px;
+  width: 200px;
+  position: relative;
+  left: 750px;
+  top: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 15px;
   animation: slideIn 1s ease-out;
+  z-index: 999;
+  background-color: var(--bg);
 }
 
 .preloader__text {
   text-align: center;
-  height: 72px;
+  height: 90px;
   font-weight: 900;
   font-size: 32px;
   color: var(--color);
@@ -116,3 +140,313 @@ table {
   }
 }
 
+.exchange__basic {
+  width: 370px;
+  height: 170px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 5px 5px 5px 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.basic__curr-string {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 15px;
+}
+
+#curr-img {
+  width: 40px;
+  height: 40px;
+  background-color: var(--bg);
+  border: 1px solid var(--bg);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none; /* Приховуємо спінери */
+  margin: 0; /* Видаляємо зайві відступи */
+  background: var(--bg);
+}
+
+.basic__curr-select {
+  width: 310px;
+  height: 40px;
+  background-color: var(--light);
+  border: 1px solid var(--border);
+  color: var(--color);
+  border-radius: 15px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.basic__value-area {
+  box-sizing: border-box;
+  width: 360px;
+  height: 70px;
+}
+
+.basic__value {
+  width: 360px;
+  height: 70px;
+  font-size: 42px;
+  background-color: var(--bg);
+  text-align: right;
+  font-weight: 900;
+  color: var(--color);
+}
+
+.basic__convert-btn {
+  width: 150px;
+  height: 200px;
+  border: 1px solid var(--border);
+  color: var(--color);
+  border-radius: 10px;
+  background-color: var(--light);
+  font-weight: 700;
+  font-size: 20px;
+}
+
+
+.exchange__second {
+  width: 370px;
+  height: 170px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 10px 5px 5px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  bottom: 25px;
+}
+
+.second__curr-string {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 15px;
+}
+
+#curr-img-second {
+  width: 40px;
+  height: 40px;
+  background-color: var(--bg);
+  border: 1px solid var(--bg);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none; /* Приховуємо спінери */
+  margin: 0; /* Видаляємо зайві відступи */
+  background: var(--bg);
+}
+
+.second__curr-select {
+  width: 310px;
+  height: 40px;
+  background-color: var(--light);
+  border: 1px solid var(--border);
+  color: var(--color);
+  border-radius: 15px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.second__value-area {
+  box-sizing: border-box;
+  width: 360px;
+  height: 70px;
+  position: relative;
+  bottom: 20px;
+}
+
+.second-value {
+  width: 360px;
+  height: 70px;
+  font-size: 42px;
+  background-color: var(--bg);
+  text-align: right;
+  font-weight: 900;
+  color: var(--color);
+}
+
+.change__btn-area {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+  bottom: 15px;
+}
+.change__btn {
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background-color: var(--light);
+  opacity: 1;
+  scale: 1;
+  transition: 0.7s;
+}
+.change__btn-img {
+  width: 30px;
+  height: 30px;
+}
+
+.change__btn:hover {
+  opacity: 0.8;
+  scale: 0.9;
+}
+
+.interface__console {
+  background-color: var(--light);
+  width: 370px;
+  height: 70px;
+  position: relative;
+  bottom: 20px;
+  overflow: hidden;
+  outline: none;
+  resize: none;
+  cursor:context-menu;
+  border-radius: 15px;
+  border: 2px solid var(--border);
+  font-size: 27px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color);
+}
+
+.interface__btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  flex-direction: row;
+  position: relative;
+  bottom: 15px;
+}
+
+.interface__theme-btn {
+  width: 180px;
+  height: 245px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg);
+}
+
+.interface__theme-btn:hover {
+  background-color: var(--light);
+}
+
+.theme__btn-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.theme__btn-text {
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--color);
+}
+
+.theme__btn-img {
+  width: 32px;
+  height: 32px;
+}
+
+.interface__fast-btn {
+  width: 180px;
+  height: 245px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg);
+}
+
+.fast__btn-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  flex-direction: column;
+}
+
+.fast__btn-text {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--color);
+}
+
+.fast__btn-img {
+  width: 48px;
+  height: 48px;
+}
+
+.fast__btn-wrapper {
+  position: relative;
+  width: 180px;
+  height: 245px;
+}
+
+/* Сітка з 4 кнопками */
+.second__btn {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 5px;
+  width: 100%;
+  height: 100%;
+}
+
+/* Окремі кнопки в сітці */
+.item {
+  background-color: var(--light);
+  border: 1px solid var(--border);
+  color: var(--color);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 900;
+  width: 100%;
+  height: 100%;
+}
+
+/* Кнопка "Швидкі суми", що перекриває 4 кнопки */
+.fast__btn-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Ефект при наведенні */
+.fast__btn-overlay:hover {
+  background-color: var(--light);
+}
